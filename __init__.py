@@ -6,8 +6,8 @@ app = Flask(__name__)
 
 app.config['MAIL_SERVER'] = 'smtp.gmail.com'
 app.config['MAIL_PORT'] = 465
-app.config['MAIL_USERNAME'] = 'darkweb.mailer.daemon@gmail.com'
-app.config['MAIL_PASSWORD'] = 'Trojanhorse@99'
+app.config['MAIL_USERNAME'] = '<mailid>'
+app.config['MAIL_PASSWORD'] = '<password>'
 app.config['MAIL_USE_TLS'] = False
 app.config['MAIL_USE_SSL'] = True
 
@@ -24,7 +24,7 @@ def send_message():
 		msg = request.form['Message']
 		email = request.form['Email']
 		subject = "Thanks for your interest to GoInsightful!"
-		message = Message(subject, sender='darkweb.mailer.daemon@gmail.com',recipients=[email])
+		message = Message(subject, sender='<mailid>',recipients=[email])
 		message.body = " ".join(["Hi", name, "\n", "This is what we got from you:", "\n", msg])
 
 		mail.send(message)
